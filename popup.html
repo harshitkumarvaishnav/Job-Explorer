@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Job Explorer</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <div class="logo">JE</div>
+    <div><h1>Job Explorer</h1><p>Find jobs that fit you</p></div>
+  </header>
+
+  <section class="panel">
+    <h2>Your profile</h2>
+    <label class="upload">
+      <span>Upload resume (PDF, TXT, DOCX)</span>
+      <input id="resumeFile" type="file" accept=".pdf,.txt,.docx">
+    </label>
+    <p id="fileStatus" class="muted">No resume selected. PDF/TXT text extraction is supported locally; DOCX requires a text-based resume or manual profile entry.</p>
+    <label for="skills">Skills (comma-separated)</label>
+    <textarea id="skills" rows="3" placeholder="e.g. VAPT, Burp Suite, OWASP, API Security"></textarea>
+    <div class="two">
+      <div><label for="experience">Experience</label><input id="experience" placeholder="e.g. 2 years"></div>
+      <div><label for="role">Target roles</label><input id="role" placeholder="e.g. VAPT Analyst"></div>
+    </div>
+    <label for="location">Preferred location (optional)</label>
+    <input id="location" placeholder="e.g. Delhi, Remote">
+    <button id="saveProfile" class="secondary">Save profile</button>
+  </section>
+
+  <section class="panel">
+    <h2>Scan this job page</h2>
+    <p class="muted">Open a job-search/results page, then press Scan. Job Explorer reads listings visible in the page; it does not bypass logins, CAPTCHAs, paywalls, or site restrictions.</p>
+    <button id="scanPage">Scan current page</button>
+    <div class="status" id="status" role="status">Ready</div>
+  </section>
+
+  <section class="panel">
+    <div class="resultsHead"><h2>Matched vacancies</h2><span id="count">0</span></div>
+    <div id="results"><p class="muted">Scan a job page to see matches here.</p></div>
+    <button id="export" class="secondary" disabled>Export results as CSV</button>
+  </section>
+  <footer>Matching is a heuristic ranking, not a guarantee of suitability. Always verify details on the employer's site.</footer>
+  <script src="popup.js"></script>
+</body>
+</html>
